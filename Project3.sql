@@ -1,0 +1,39 @@
+CREATE DATABASE IF NOT EXISTS Forum;
+USE Forum;
+DROP TABLE IF EXISTS Message;
+DROP TABLE IF EXISTS History;
+DROP TABLE IF EXISTS User;
+
+-- Create the User table
+CREATE TABLE IF NOT EXISTS User (
+  userId INT PRIMARY KEY AUTO_INCREMENT,
+  firstName VARCHAR(255) NOT NULL,
+  lastName VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  active BOOLEAN DEFAULT TRUE,
+  dateJoined DATE NOT NULL,
+  type VARCHAR(255) NOT NULL,
+  profileImageURL VARCHAR(255)
+);
+
+-- Create the History table
+CREATE TABLE IF NOT EXISTS History (
+  historyId INT PRIMARY KEY AUTO_INCREMENT,
+  userId INT NOT NULL,
+  postId INT NOT NULL,
+  viewDate DATE NOT NULL,
+  FOREIGN KEY (userId) REFERENCES User(userId),
+  FOREIGN KEY (postId) REFERENCES Post(postId)
+);
+
+-- Create the Message table
+CREATE TABLE IF NOT EXISTS Message (
+  messageId INT PRIMARY KEY AUTO_INCREMENT,
+  userId INT NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  message VARCHAR(255) NOT NULL,
+  dateCreated DATE NOT NULL,
+  status VARCHAR(255) NOT NULL,
+  FOREIGN KEY (userId) REFERENCES User(userId)
+);
