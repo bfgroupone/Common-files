@@ -17,6 +17,12 @@ CREATE TABLE IF NOT EXISTS User (
   type INT NOT NULL,
   profileImageURL VARCHAR(255)
 );
+-- Insert test user item
+INSERT INTO User ( firstName, lastName, email, password, active, dateJoined, type, profileImageURL) VALUES 
+('jane', 'doe', 'email','pass', true, now(),' 0',''),
+('first1', 'last1', 'email1','pass1', true, now(),'1',''),
+( 'first2', 'last2', 'email2','pass2', true, now(),'2',''),
+( 'first3', 'last3', 'email3','pass3', false, '2014-07-25 11:18:10.999999','3','');
 
 USE HistoryDB;
 DROP TABLE IF EXISTS History;
