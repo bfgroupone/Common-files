@@ -28,7 +28,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/post-service/posts",
+									"raw": "http://localhost:8000/post-service/",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -36,7 +36,7 @@
 									"port": "8000",
 									"path": [
 										"post-service",
-										"posts"
+										""
 									]
 								}
 							},
@@ -67,7 +67,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8000/post-service/posts/64b59f8a7cc4891532caeb0b",
+									"raw": "http://localhost:8000/post-service/",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -75,8 +75,7 @@
 									"port": "8000",
 									"path": [
 										"post-service",
-										"posts",
-										"64b59f8a7cc4891532caeb0b"
+										""
 									]
 								}
 							},
@@ -107,7 +106,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8000/post-service/posts/64b59f8a7cc4891532caeb0b",
+									"raw": "http://localhost:8000/post-service/64b59f8a7cc4891532caeb0b",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -115,7 +114,6 @@
 									"port": "8000",
 									"path": [
 										"post-service",
-										"posts",
 										"64b59f8a7cc4891532caeb0b"
 									]
 								}
@@ -238,7 +236,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/post-service/posts",
+									"raw": "http://localhost:8000/post-service/",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -246,14 +244,14 @@
 									"port": "8000",
 									"path": [
 										"post-service",
-										"posts"
+										""
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "create new post Copy",
+							"name": "create new post",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -269,7 +267,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"title\": \"title2\",\n    \"content\": \"this is the second post\",\n    \"status\": \"Unpublished\",\n    \"images\": [],\n    \"attachments\": []\n}",
+									"raw": "{\n    \"title\": \"title3\",\n    \"content\": \"this is a post\",\n    \"status\": \"Unpublished\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -277,7 +275,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8000/post-service/posts",
+									"raw": "http://localhost:8000/post-service/",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -285,7 +283,7 @@
 									"port": "8000",
 									"path": [
 										"post-service",
-										"posts"
+										""
 									]
 								}
 							},
@@ -316,7 +314,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8000/post-service/posts/64b59f8a7cc4891532caeb0b",
+									"raw": "http://localhost:8000/post-service/64b59f8a7cc4891532caeb0b",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -324,7 +322,6 @@
 									"port": "8000",
 									"path": [
 										"post-service",
-										"posts",
 										"64b59f8a7cc4891532caeb0b"
 									]
 								}
@@ -356,7 +353,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8000/post-service/posts/64b76279cdc32856bae5a7f7",
+									"raw": "http://localhost:8000/post-service/64b76279cdc32856bae5a7f7",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -364,7 +361,6 @@
 									"port": "8000",
 									"path": [
 										"post-service",
-										"posts",
 										"64b76279cdc32856bae5a7f7"
 									]
 								}
@@ -387,7 +383,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/post-service/posts/draft",
+									"raw": "http://localhost:8000/post-service/draft",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -395,7 +391,6 @@
 									"port": "8000",
 									"path": [
 										"post-service",
-										"posts",
 										"draft"
 									]
 								}
@@ -418,7 +413,7 @@
 								"method": "PATCH",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/post-service/posts/64b59f8a7cc4891532caeb0b/archive",
+									"raw": "http://localhost:8000/post-service/64b59f8a7cc4891532caeb0b/archive",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -426,8 +421,38 @@
 									"port": "8000",
 									"path": [
 										"post-service",
-										"posts",
 										"64b59f8a7cc4891532caeb0b",
+										"archive"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change the reply setting of the deleted post - owner",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MkBlbWFpbC5jb20iLCJwZXJtaXNzaW9ucyI6WyJyZWFkIiwid3JpdGUiLCJkZWxldGUiLCJ1cGRhdGUiXSwidXNlcklkIjo1LCJlbWFpbCI6InRlc3QyQGVtYWlsLmNvbSIsInJvbGUiOiJOT1JNQUxfVVNFUiJ9.flskAxvLT-k_7HcDcHynbSyVFnQiSeG25xMCRe44uZw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/post-service/64b73cae6bed96781f78ed4a/archive",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"post-service",
+										"64b73cae6bed96781f78ed4a",
 										"archive"
 									]
 								}
@@ -450,7 +475,7 @@
 								"method": "PATCH",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/post-service/posts/64b73cae6bed96781f78ed4a/archive",
+									"raw": "http://localhost:8000/post-service/64b82abf01384f2a3b4c7531/archive",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -458,8 +483,7 @@
 									"port": "8000",
 									"path": [
 										"post-service",
-										"posts",
-										"64b73cae6bed96781f78ed4a",
+										"64b82abf01384f2a3b4c7531",
 										"archive"
 									]
 								}
@@ -482,7 +506,7 @@
 								"method": "PATCH",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/post-service/posts/64b73cae6bed96781f78ed4a/banned",
+									"raw": "http://localhost:8000/post-service/64b73cae6bed96781f78ed4a/banned",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -490,7 +514,6 @@
 									"port": "8000",
 									"path": [
 										"post-service",
-										"posts",
 										"64b73cae6bed96781f78ed4a",
 										"banned"
 									]
@@ -514,7 +537,7 @@
 								"method": "PATCH",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/post-service/posts/64b73cae6bed96781f78ed4a/delete",
+									"raw": "http://localhost:8000/post-service/64b73cae6bed96781f78ed4a/delete",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -522,7 +545,6 @@
 									"port": "8000",
 									"path": [
 										"post-service",
-										"posts",
 										"64b73cae6bed96781f78ed4a",
 										"delete"
 									]
