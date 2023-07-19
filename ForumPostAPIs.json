@@ -1,0 +1,601 @@
+{
+	"info": {
+		"_postman_id": "7d7730f5-00dd-4310-9e79-6b807a8a9574",
+		"name": "Forum",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28039691"
+	},
+	"item": [
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "Get all published posts",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGVtYWlsLmNvbSIsInBlcm1pc3Npb25zIjpbInJlYWQiLCJhZG1pbl9yZWFkIiwiZGVsZXRlIiwiYmFuX3VuYmFuIiwicmVjb3ZlciIsInByb21vdGUiXSwidXNlcklkIjoxLCJlbWFpbCI6InRlc3RAZW1haWwuY29tIiwicm9sZSI6IlNVUEVSX0FETUlOIn0.wK4t1fX7Xmxp_QUHwh1tmeap3cMATKS0Et_i1S9zhSs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/post-service/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"post-service",
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create new post - not allow",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGVtYWlsLmNvbSIsInBlcm1pc3Npb25zIjpbInJlYWQiLCJhZG1pbl9yZWFkIiwiZGVsZXRlIiwiYmFuX3VuYmFuIiwicmVjb3ZlciIsInByb21vdGUiXSwidXNlcklkIjoxLCJlbWFpbCI6InRlc3RAZW1haWwuY29tIiwicm9sZSI6IlNVUEVSX0FETUlOIn0.wK4t1fX7Xmxp_QUHwh1tmeap3cMATKS0Et_i1S9zhSs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"title4\",\n    \"content\": \"this is the fourth post\",\n    \"status\": \"Published\",\n    \"images\": [],\n    \"attachments\": []\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/post-service/posts/64b59f8a7cc4891532caeb0b",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"post-service",
+										"posts",
+										"64b59f8a7cc4891532caeb0b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGVtYWlsLmNvbSIsInBlcm1pc3Npb25zIjpbInJlYWQiLCJhZG1pbl9yZWFkIiwiZGVsZXRlIiwiYmFuX3VuYmFuIiwicmVjb3ZlciIsInByb21vdGUiXSwidXNlcklkIjoxLCJlbWFpbCI6InRlc3RAZW1haWwuY29tIiwicm9sZSI6IlNVUEVSX0FETUlOIn0.wK4t1fX7Xmxp_QUHwh1tmeap3cMATKS0Et_i1S9zhSs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"title2\",\n    \"content\": \"update post third time\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/post-service/posts/64b59f8a7cc4891532caeb0b",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"post-service",
+										"posts",
+										"64b59f8a7cc4891532caeb0b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all unpublished posts",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGVtYWlsLmNvbSIsInBlcm1pc3Npb25zIjpbInJlYWQiLCJhZG1pbl9yZWFkIiwiZGVsZXRlIiwiYmFuX3VuYmFuIiwicmVjb3ZlciIsInByb21vdGUiXSwidXNlcklkIjoxLCJlbWFpbCI6InRlc3RAZW1haWwuY29tIiwicm9sZSI6IlNVUEVSX0FETUlOIn0.wK4t1fX7Xmxp_QUHwh1tmeap3cMATKS0Et_i1S9zhSs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/post-service/posts/draft",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"post-service",
+										"posts",
+										"draft"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change the reply setting of the post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGVtYWlsLmNvbSIsInBlcm1pc3Npb25zIjpbInJlYWQiLCJhZG1pbl9yZWFkIiwiZGVsZXRlIiwiYmFuX3VuYmFuIiwicmVjb3ZlciIsInByb21vdGUiXSwidXNlcklkIjoxLCJyb2xlIjoiU1VQRVJfQURNSU4ifQ.T9zwjn_sxjjCW_GMuUCWjIFMYImjojZ-ThhTGbYVSoE",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/post-service/posts/64b73cae6bed96781f78ed4a/archive",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"post-service",
+										"posts",
+										"64b73cae6bed96781f78ed4a",
+										"archive"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ban or unban the post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGVtYWlsLmNvbSIsInBlcm1pc3Npb25zIjpbInJlYWQiLCJhZG1pbl9yZWFkIiwiZGVsZXRlIiwiYmFuX3VuYmFuIiwicmVjb3ZlciIsInByb21vdGUiXSwidXNlcklkIjoxLCJyb2xlIjoiU1VQRVJfQURNSU4ifQ.T9zwjn_sxjjCW_GMuUCWjIFMYImjojZ-ThhTGbYVSoE",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/post-service/posts/64b59f8a7cc4891532caeb0b/banned",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"post-service",
+										"posts",
+										"64b59f8a7cc4891532caeb0b",
+										"banned"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "normal user",
+					"item": [
+						{
+							"name": "Get all published posts Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MkBlbWFpbC5jb20iLCJwZXJtaXNzaW9ucyI6WyJyZWFkIiwid3JpdGUiLCJkZWxldGUiLCJ1cGRhdGUiXSwidXNlcklkIjo1LCJlbWFpbCI6InRlc3QyQGVtYWlsLmNvbSIsInJvbGUiOiJOT1JNQUxfVVNFUiJ9.flskAxvLT-k_7HcDcHynbSyVFnQiSeG25xMCRe44uZw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/post-service/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"post-service",
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create new post Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MkBlbWFpbC5jb20iLCJwZXJtaXNzaW9ucyI6WyJyZWFkIiwid3JpdGUiLCJkZWxldGUiLCJ1cGRhdGUiXSwidXNlcklkIjo1LCJlbWFpbCI6InRlc3QyQGVtYWlsLmNvbSIsInJvbGUiOiJOT1JNQUxfVVNFUiJ9.flskAxvLT-k_7HcDcHynbSyVFnQiSeG25xMCRe44uZw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"title2\",\n    \"content\": \"this is the second post\",\n    \"status\": \"Unpublished\",\n    \"images\": [],\n    \"attachments\": []\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/post-service/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"post-service",
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update post - not owner",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MkBlbWFpbC5jb20iLCJwZXJtaXNzaW9ucyI6WyJyZWFkIiwid3JpdGUiLCJkZWxldGUiLCJ1cGRhdGUiXSwidXNlcklkIjo1LCJlbWFpbCI6InRlc3QyQGVtYWlsLmNvbSIsInJvbGUiOiJOT1JNQUxfVVNFUiJ9.flskAxvLT-k_7HcDcHynbSyVFnQiSeG25xMCRe44uZw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"title...\",\n    \"content\": \"update post time\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/post-service/posts/64b59f8a7cc4891532caeb0b",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"post-service",
+										"posts",
+										"64b59f8a7cc4891532caeb0b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update post - owner",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MkBlbWFpbC5jb20iLCJwZXJtaXNzaW9ucyI6WyJyZWFkIiwid3JpdGUiLCJkZWxldGUiLCJ1cGRhdGUiXSwidXNlcklkIjo1LCJlbWFpbCI6InRlc3QyQGVtYWlsLmNvbSIsInJvbGUiOiJOT1JNQUxfVVNFUiJ9.flskAxvLT-k_7HcDcHynbSyVFnQiSeG25xMCRe44uZw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"title...\",\n    \"content\": \"update post time\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/post-service/posts/64b76279cdc32856bae5a7f7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"post-service",
+										"posts",
+										"64b76279cdc32856bae5a7f7"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all unpublished posts",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MkBlbWFpbC5jb20iLCJwZXJtaXNzaW9ucyI6WyJyZWFkIiwid3JpdGUiLCJkZWxldGUiLCJ1cGRhdGUiXSwidXNlcklkIjo1LCJlbWFpbCI6InRlc3QyQGVtYWlsLmNvbSIsInJvbGUiOiJOT1JNQUxfVVNFUiJ9.flskAxvLT-k_7HcDcHynbSyVFnQiSeG25xMCRe44uZw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/post-service/posts/draft",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"post-service",
+										"posts",
+										"draft"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change the reply setting of the post - not owner",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MkBlbWFpbC5jb20iLCJwZXJtaXNzaW9ucyI6WyJyZWFkIiwid3JpdGUiLCJkZWxldGUiLCJ1cGRhdGUiXSwidXNlcklkIjo1LCJlbWFpbCI6InRlc3QyQGVtYWlsLmNvbSIsInJvbGUiOiJOT1JNQUxfVVNFUiJ9.flskAxvLT-k_7HcDcHynbSyVFnQiSeG25xMCRe44uZw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/post-service/posts/64b59f8a7cc4891532caeb0b/archive",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"post-service",
+										"posts",
+										"64b59f8a7cc4891532caeb0b",
+										"archive"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change the reply setting of the post - owner",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MkBlbWFpbC5jb20iLCJwZXJtaXNzaW9ucyI6WyJyZWFkIiwid3JpdGUiLCJkZWxldGUiLCJ1cGRhdGUiXSwidXNlcklkIjo1LCJlbWFpbCI6InRlc3QyQGVtYWlsLmNvbSIsInJvbGUiOiJOT1JNQUxfVVNFUiJ9.flskAxvLT-k_7HcDcHynbSyVFnQiSeG25xMCRe44uZw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/post-service/posts/64b73cae6bed96781f78ed4a/archive",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"post-service",
+										"posts",
+										"64b73cae6bed96781f78ed4a",
+										"archive"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ban or unban the post - not allow",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MkBlbWFpbC5jb20iLCJwZXJtaXNzaW9ucyI6WyJyZWFkIiwid3JpdGUiLCJkZWxldGUiLCJ1cGRhdGUiXSwidXNlcklkIjo1LCJlbWFpbCI6InRlc3QyQGVtYWlsLmNvbSIsInJvbGUiOiJOT1JNQUxfVVNFUiJ9.flskAxvLT-k_7HcDcHynbSyVFnQiSeG25xMCRe44uZw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/post-service/posts/64b73cae6bed96781f78ed4a/banned",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"post-service",
+										"posts",
+										"64b73cae6bed96781f78ed4a",
+										"banned"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MkBlbWFpbC5jb20iLCJwZXJtaXNzaW9ucyI6WyJyZWFkIiwid3JpdGUiLCJkZWxldGUiLCJ1cGRhdGUiXSwidXNlcklkIjo1LCJlbWFpbCI6InRlc3QyQGVtYWlsLmNvbSIsInJvbGUiOiJOT1JNQUxfVVNFUiJ9.flskAxvLT-k_7HcDcHynbSyVFnQiSeG25xMCRe44uZw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/post-service/posts/64b73cae6bed96781f78ed4a/delete",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"post-service",
+										"posts",
+										"64b73cae6bed96781f78ed4a",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "super admin login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@email.com\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/user-service/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"user-service",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "normal user login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test2@email.com\",\n    \"password\": \"pass2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/user-service/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"user-service",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
