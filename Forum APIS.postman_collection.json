@@ -1,0 +1,479 @@
+{
+	"info": {
+		"_postman_id": "e467780b-d6fe-4a9f-9677-f7d8166056cf",
+		"name": "Forum APIS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28524762",
+		"_collection_link": "https://interstellar-water-680671.postman.co/workspace/48ce04b6-959d-48a5-9a71-005f105418fc/collection/28524762-e467780b-d6fe-4a9f-9677-f7d8166056cf?action=share&creator=28524762&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@email.com\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth-service/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth-service",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"test\",\n    \"lastName\": \"one\",\n    \"email\": \"test1@email.com\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{auth-service}}/auth/register",
+							"host": [
+								"{{auth-service}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Authentication"
+		},
+		{
+			"name": "Post",
+			"item": []
+		},
+		{
+			"name": "History",
+			"item": [
+				{
+					"name": "getAllHistory",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "addOrUpdate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"postId\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/history-service/addOrUpdate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"history-service",
+								"addOrUpdate"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MUBlbWFpbC5jb20iLCJwZXJtaXNzaW9ucyI6WyJyZWFkIl0sInVzZXJJZCI6NCwiZW1haWwiOiJ0ZXN0MUBlbWFpbC5jb20iLCJyb2xlIjoiTk9STUFMX1VTRVJfTk9UX1ZBTElEIn0.JbD7aSk7fgANAi8KZZz4qdmNnDyfE3w-pQ4_J6Lsnnw",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "getAllUsers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGVtYWlsLmNvbSIsInBlcm1pc3Npb25zIjpbInJlYWQiLCJhZG1pbl9yZWFkIiwiZGVsZXRlIiwiYmFuX3VuYmFuIiwicmVjb3ZlciIsInByb21vdGUiXSwidXNlcklkIjoxLCJlbWFpbCI6InRlc3RAZW1haWwuY29tIiwicm9sZSI6IlNVUEVSX0FETUlOIn0.wK4t1fX7Xmxp_QUHwh1tmeap3cMATKS0Et_i1S9zhSs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/user-service/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"user-service",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getHistory",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@email.com\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/user-service/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"user-service",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"teset\",\n    \"lastName\": \"test\",\n    \"email\": \"weijchen0919@gmail.com\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{user-service}}/register",
+							"host": [
+								"{{user-service}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGVtYWlsLmNvbSIsInBlcm1pc3Npb25zIjpbInJlYWQiLCJhZG1pbl9yZWFkIiwiZGVsZXRlIiwiYmFuX3VuYmFuIiwicmVjb3ZlciIsInByb21vdGUiXSwidXNlcklkIjoxLCJlbWFpbCI6InRlc3RAZW1haWwuY29tIiwicm9sZSI6IlNVUEVSX0FETUlOIn0.wK4t1fX7Xmxp_QUHwh1tmeap3cMATKS0Et_i1S9zhSs",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "File",
+			"item": [
+				{
+					"name": "Upload File",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGVtYWlsLmNvbSIsInBlcm1pc3Npb25zIjpbInJlYWQiLCJhZG1pbl9yZWFkIiwiZGVsZXRlIiwiYmFuX3VuYmFuIiwicmVjb3ZlciIsInByb21vdGUiXSwidXNlcklkIjoxLCJyb2xlIjoiU1VQRVJfQURNSU4ifQ.T9zwjn_sxjjCW_GMuUCWjIFMYImjojZ-ThhTGbYVSoE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/jimmyweicc/Dev/BeaconFire/Week9Day2/hw/Lec1-Assignment.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{file-service}}/upload",
+							"host": [
+								"{{file-service}}"
+							],
+							"path": [
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download File",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{file-service}}/download/1689724349474_sunflower.jpg",
+							"host": [
+								"{{file-service}}"
+							],
+							"path": [
+								"download",
+								"1689724349474_sunflower.jpg"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGVtYWlsLmNvbSIsInBlcm1pc3Npb25zIjpbInJlYWQiLCJhZG1pbl9yZWFkIiwiZGVsZXRlIiwiYmFuX3VuYmFuIiwicmVjb3ZlciIsInByb21vdGUiXSwidXNlcklkIjoxLCJyb2xlIjoiU1VQRVJfQURNSU4ifQ.T9zwjn_sxjjCW_GMuUCWjIFMYImjojZ-ThhTGbYVSoE",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Email",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"recipient\": \"weijchen0919@gmail.com\",\n    \"msgBody\": \"test\",\n    \"subject\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/email/send",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"email",
+								"send"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gateway",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "getAllUsers",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "getHistory",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "History",
+					"item": [
+						{
+							"name": "getAllHistory",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "addOrUpdate",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGVtYWlsLmNvbSIsInBlcm1pc3Npb25zIjpbInJlYWQiLCJhZG1pbl9yZWFkIiwiZGVsZXRlIiwiYmFuX3VuYmFuIiwicmVjb3ZlciIsInByb21vdGUiXSwidXNlcklkIjoxLCJlbWFpbCI6InRlc3RAZW1haWwuY29tIiwicm9sZSI6IlNVUEVSX0FETUlOIn0.wK4t1fX7Xmxp_QUHwh1tmeap3cMATKS0Et_i1S9zhSs",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
