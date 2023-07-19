@@ -2,7 +2,7 @@
 | Service | Port |
 | --- | ----------- |
 | Eureka | 8761 |
-| Gateway | xxxx |
+| Gateway | 9000 |
 | Authentication | 8080 |
 | User | 8082 |
 | History | 8083 |
