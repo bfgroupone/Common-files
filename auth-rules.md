@@ -10,15 +10,15 @@
 - admin can read banned and deleted posts
 - admin can't create posts themselves (??? i am not sure about this one)
 - admin can't modify other's posts
-- admin can delete posts and replies (still deletes remains in the database)
+- admin can delete posts and replies (still remains in the database)
 - admin can ban/unban posts
 - admin can ban/unban users (admin can't ban other admin)
 - admin can recover deleted posts/replies
 
 ## NORMAL_USER (2)
 - Authorities: ["read", "write", "delete", "update"]
-- normal user can read published posts create/reply to published posts delete posts/replys with their (userId)
-- modify their post if they are the onwer(same userid)
+- normal user can read published posts create/reply to published posts delete posts/replies with their (userId)
+- modify their post if they are the owner (same userId)
 - (bonus) delete other's reply on their own posts
 - whenever normal user delete posts/replies, the normal user  only modify the state of the post/reply while the data in the database remains.
 - normal user can't recover(update states of post from dead to alive)
@@ -30,4 +30,4 @@
 
 ## VISITOR_BANNED (4)
 - Authorities: null
-- visotor should have no permission, and we can exclude login/register/contact us page from filter and security to all access
+- visitors should have no permission, and we can exclude login/register/contact us page from filter and security to all access
