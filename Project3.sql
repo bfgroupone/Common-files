@@ -12,17 +12,20 @@ CREATE TABLE IF NOT EXISTS User (
   lastName VARCHAR(255) NOT NULL,
   email VARCHAR(255) UNIQUE NOT NULL,
   password VARCHAR(255) NOT NULL,
-  active BOOLEAN DEFAULT TRUE,
-  dateJoined DATE NOT NULL,
+  dateJoined DATETIME NOT NULL,
   type INT NOT NULL,
-  profileImageURL VARCHAR(255)
+  profileImageURL VARCHAR(255),
+  validationToken VARCHAR(255)
 );
 -- Insert test user item
-INSERT INTO User ( firstName, lastName, email, password, active, dateJoined, type, profileImageURL) VALUES 
-('jane', 'doe', 'email','pass', true, now(),' 0',''),
-('first1', 'last1', 'email1','pass1', true, now(),'1',''),
-( 'first2', 'last2', 'email2','pass2', true, now(),'2',''),
-( 'first3', 'last3', 'email3','pass3', false, '2014-07-25 11:18:10.999999','3','');
+INSERT INTO User ( firstName, lastName, email, password, dateJoined, type, profileImageURL, validationToken) VALUES 
+('superAdmin', 'user', 'email1','pass1', '2014-07-25 11:18:10','0','',''),
+('admin', 'user', 'email2','pass2', '2014-07-25 11:18:10','1','',''),
+('normal', 'user', 'email3','pass3',  '2014-07-25 11:18:10', '2','',''),
+('normalNotValid', 'user', 'email4','pass4', '2014-07-25 11:18:10','3','',''),
+('banned', 'user', 'email5','pass5', '2014-07-25 11:18:10','4','','');
+
+SELECT * FROM UserDB;
 
 USE HistoryDB;
 DROP TABLE IF EXISTS History;
